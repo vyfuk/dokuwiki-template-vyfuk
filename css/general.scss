@@ -315,40 +315,17 @@ th {
     float: right;
 }
 
-.social a {
-    display: inline-block;
-    width: 4.25rem;
-    height: 6.25rem;
-    margin: 0 8px;
-    transition: .3s all;
-
-    &:hover {
-        filter: none;
+.social {
+    transform: fill .2s;
+    a:hover, a:focus {
+        path#eye-blink {
+            fill: white !important;
+        }
+        
+        path#eye-open {
+            fill: none !important;
+        }
     }
-
-    &:hover > img, &:focus > img {
-        content: url("icons/vyfucek2.svg");
-    }
-}
-
-.social img {
-    float: right;
-    height: 3rem;
-}
-
-.social #fb-icon {
-    background: url("icons/social-fb.svg") no-repeat bottom;
-    background-size: 80%;
-}
-
-.social #ig-icon {
-    background: url("icons/social-ig.svg") no-repeat bottom;
-    background-size: 80%;
-}
-
-.social #yt-icon {
-    background: url("icons/social-yt.svg") no-repeat bottom;
-    background-size: 80%;
 }
 
 .stream.row {

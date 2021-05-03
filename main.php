@@ -119,15 +119,18 @@ require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
                         V Holešovičkách 2<br>
                         180 00 Praha 8
                     </div>
-                    <div class="social col-lg order-lg-1">
-                        <a href="https://facebook.com/ksvyfuk" id="fb-icon">
-                            <img src="/lib/tpl/vyfuk/icons/vyfucek1.svg" alt="FB">
+                    <div class="social col-lg order-lg-1 row no-gutters">
+                        <a class="col-3 px-1" href="https://facebook.com/ksvyfuk">
+                            <?php include("icons/vyfuk-fb.svg"); ?>
                         </a>
-                        <a href="https://www.instagram.com/ksvyfuk/" id="ig-icon">
-                            <img src="/lib/tpl/vyfuk/icons/vyfucek1.svg" alt="IG">
+                        <a class="col-3 px-1" href="https://www.instagram.com/ksvyfuk/">
+                            <?php include("icons/vyfuk-ig.svg"); ?>
                         </a>
-                        <a href="https://www.youtube.com/channel/UCUBv3Ydd-laLSY5DMimoE7w" id="yt-icon">
-                            <img src="/lib/tpl/vyfuk/icons/vyfucek1.svg" alt="YT">
+                        <a class="col-3 px-1" href="https://www.youtube.com/channel/UCUBv3Ydd-laLSY5DMimoE7w">
+                            <?php include("icons/vyfuk-yt.svg"); ?>
+                        </a>
+                        <a class="col-3 px-1" href="https://vyfuk.mff.cuni.cz/discord">
+                            <?php include("icons/vyfuk-dc.svg"); ?>
                         </a>
                     </div>
                 </div>
