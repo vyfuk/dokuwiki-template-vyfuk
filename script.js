@@ -21,7 +21,6 @@ function update_parallax() {
 
     const zValue = (imgHeight - pageHeight) / (imgHeight - winHeight);
     const scaleValue = 1 - zValue;
-    console.log(zValue, scaleValue);
 
     if (imgHeight >= pageHeight) {
         image.css('display', 'none');
@@ -44,7 +43,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     if (content[0]) {
         const resize_observer = new ResizeObserver(update_parallax);
         resize_observer.observe(content[0]);
-        console.log('OBSERVE');
     }
     window.addEventListener('resize', update_parallax);
     if (cookie[0] != null) {
