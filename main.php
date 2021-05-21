@@ -103,7 +103,7 @@ require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
         <footer>
             <div class="footer-cloud"></div>
             <div class="footer-content">
-                <div class="container row m-auto align-items-center justify-content-center justify-content-lg-between">
+                <div class="container row m-auto align-items-center justify-content-center justify-content-lg-between py-1">
                     <div class="col-lg order-lg-2">
                         <a href="/">
                             <img id="footerLogo" src="/lib/tpl/vyfuk/images/logo-white.svg" style="width: 100px"
@@ -133,6 +133,14 @@ require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
                             <?php include("icons/vyfuk-dc.svg"); ?>
                         </a>
                     </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-around py-1">
+                    <a href="https://www.msmt.cz/">
+                        <img height="90" src="/lib/tpl/vyfuk/images/logo-msmt.png" alt="MŠMT ČR">
+                    </a>
+                    <a href="https://www.msmt.cz/">
+                        <img height="60" src="/lib/tpl/vyfuk/images/logo-mff.png" alt="MFF UK">
+                    </a>
                 </div>
             </div>
         </footer>
