@@ -6,8 +6,6 @@ global $conf;
 global $ID;
 
 require_once(dirname(__FILE__) . '/tpl_functions.php');
-require_once(dirname(__FILE__) . '/navBar/BootstrapNavBar.php');
-require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang']; ?>" lang="<?php echo $conf['lang']; ?>">
 <head>
@@ -106,8 +104,8 @@ require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
         <footer>
             <div class="footer-cloud"></div>
             <div class="footer-content">
-                <div class="container row m-auto align-items-center justify-content-center justify-content-lg-between py-1">
-                    <div class="col-lg order-lg-2">
+                <div class="container row m-auto align-items-center justify-content-center justify-content-lg-between">
+                    <div class="col-lg order-lg-2 py-1">
                         <a href="/">
                             <img id="footerLogo" src="/lib/tpl/vyfuk/images/logo-white.svg" style="width: 100px"
                                  alt="Výfuk">
@@ -116,13 +114,13 @@ require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
                         Neváhej nás kontaktovat!<br>
                         <a href="mailto:vyfuk@vyfuk.mff.cuni.cz">vyfuk@vyfuk.mff.cuni.cz</a>
                     </div>
-                    <div class="col-lg order-lg-3">
+                    <div class="col-lg order-lg-3 py-1">
                         Korespondenční seminář Výfuk<br>
                         Matematicko-fyzikální fakulta UK<br>
                         V Holešovičkách 2<br>
                         180 00 Praha 8
                     </div>
-                    <div class="social col-lg order-lg-1 row no-gutters">
+                    <div class="social col-lg order-lg-1 row no-gutters py-1">
                         <a class="col-3 px-1" href="https://facebook.com/ksvyfuk">
                             <?php include("icons/vyfuk-fb.svg"); ?>
                         </a>
