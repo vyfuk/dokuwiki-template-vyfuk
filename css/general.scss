@@ -25,12 +25,8 @@ footer {
 }
 
 a {
-    color: __link__;
+    text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-    a:hover, a:active {
-        color: lighten(__orange__, 20%);
-    }
 }
 
 button, .qq-upload-button {
