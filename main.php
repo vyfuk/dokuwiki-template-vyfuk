@@ -1,7 +1,5 @@
 <?php
-
-use fksTemplate\NavBar\BootstrapNavBar;
-use vyfukTemplate\templateFunctions;
+use vyfukTemplate\tpl_functions;
 
 if (!defined('DOKU_INC')) die();
 global $conf;
@@ -25,10 +23,10 @@ require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous"></script>
-    <title><?php echo templateFunctions::get_title($ID); ?></title>
+    <title><?php echo tpl_functions::getPageTitle($ID); ?></title>
     <?php
     echo tpl_favicon(['favicon', 'mobile']);
     tpl_metaheaders();
@@ -38,21 +36,26 @@ require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
 <div class="parallax-wrapper">
     <img class="parallax-bg w-100" src="/lib/tpl/vyfuk/images/wallpaper.png?v=3" alt="Výfuk wallpaper">
     <div class="parallax-fg">
-        <div class="sticky-top bg-primary">
-            <?php
-            if (page_exists("system:menu_cs")) {
-                $leftMenu = new BootstrapNavBar('full');
-                $leftMenu->setClassName('navbar-expand-lg container')
-                    ->addMenuText('menu', 'mr-auto')
-                    ->addMenuText('login')
-                    ->addBrand('', '', '', 50, null)
-                    ->addTools('justify-content-end', true)
-                    ->render();
-            } else {
-                echo "<p style='color: #fff'>Please create page <b>system:menu</b> containing menu structure.<br>Založte prosím stránku <b>system:menu</b> obsahující strukturu menu.</p>";
-            }
-            ?>
-        </div>
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container justify-content-start">
+                <a class="navbar-brand" href="/">
+                    <img src="/lib/tpl/vyfuk/images/logo-white.svg" alt="Výfuk" width="50">
+                </a>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <?php
+                        tpl_functions::drawNavItems('system:menu_cs');
+                        if (isset($INFO['userinfo'])) {
+                            tpl_functions::drawNavUserItems();
+                        } else {
+                            tpl_functions::drawNavItems('system:login_cs', 'ms-auto');
+                        }
+                    ?>
+                </div>
+            </div>
+        </nav>
         <div id="content" class="clearfix">
             <?php if ($ID == "start"): ?>
                 <div id="landing-page" class="container p-0">
@@ -84,7 +87,7 @@ require_once(dirname(__FILE__) . '/navBar/NavBarItem.php');
                         </div>
                         <div class="col-lg-6 cloud-wrapper">
                             <div class="timer-content m-1">
-                                <?php templateFunctions::draw_content("system:timer"); ?>
+                                <?php tpl_functions::draw_content("system:timer"); ?>
                             </div>
                         </div>
                     </div>
