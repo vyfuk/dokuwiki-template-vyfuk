@@ -135,7 +135,7 @@ require_once(dirname(__FILE__) . '/tpl_functions.php');
                         </a>
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-around py-1">
+                <div class="d-flex align-items-center justify-content-around py-2">
                     <a href="https://www.msmt.cz/">
                         <img height="90" src="/lib/tpl/vyfuk/images/logo-msmt.png" alt="MŠMT ČR">
                     </a>
