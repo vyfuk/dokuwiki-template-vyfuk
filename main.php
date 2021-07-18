@@ -34,7 +34,7 @@ require_once(dirname(__FILE__) . '/tpl_functions.php');
 <div class="parallax-wrapper">
     <img class="parallax-bg w-100" src="/lib/tpl/vyfuk/images/wallpaper.png?v=3" alt="Výfuk wallpaper">
     <div class="parallax-fg">
-        <nav class="navbar navbar-expand-lg bg-primary">
+        <nav class="navbar navbar-expand-lg bg-primary sticky-top">
             <div class="container justify-content-start">
                 <a class="navbar-brand" href="/">
                     <img src="/lib/tpl/vyfuk/images/logo-white.svg" alt="Výfuk" width="50">
