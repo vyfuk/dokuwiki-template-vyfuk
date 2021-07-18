@@ -133,7 +133,7 @@ require_once(dirname(__FILE__) . '/tpl_functions.php');
                     <a href="https://www.msmt.cz/">
                         <img height="90" src="/lib/tpl/vyfuk/images/logo-msmt.png" alt="MŠMT ČR">
                     </a>
-                    <a href="https://www.msmt.cz/">
+                    <a href="https://www.mff.cuni.cz/">
                         <img height="60" src="/lib/tpl/vyfuk/images/logo-mff.png" alt="MFF UK">
                     </a>
                 </div>
