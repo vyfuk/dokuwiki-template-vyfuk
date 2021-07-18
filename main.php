@@ -13,17 +13,11 @@ require_once(dirname(__FILE__) . '/tpl_functions.php');
     <meta name="author" content="Miroslav Jarý, jason@vyfuk.mff.cuni.cz">
     <meta name="description"
           content="Výfuk, jméno našeho korespondenčního semináře, je vlastně zkratka jeho dlouhého názvu – Výpočty fyzikálních úkolů. Touto soutěží se snažíme ukázat, že fyzika je vlastně velmi zábavné a fascinující téma.">
-    <meta name="keywords" content="vyfuk, výfuk,  fyzika, fyzikalni, fyzikální, seminar, seminář, soutez, soutěž">
+    <meta name="keywords" content="vyfuk, výfuk, fyzika, fyzikalni, fyzikální, seminar, seminář, soutez, soutěž">
     <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/lib/tpl/vyfuk/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/tpl/vyfuk/css/bootstrap.min.css?v=2">
     <script src="https://use.fontawesome.com/f585fb7cc3.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-            crossorigin="anonymous"></script>
     <title><?php echo tpl_functions::getPageTitle($ID); ?></title>
     <?php
     echo tpl_favicon(['favicon', 'mobile']);
@@ -150,5 +144,13 @@ require_once(dirname(__FILE__) . '/tpl_functions.php');
 <div class="loader-wrapper">
     <span class="loader d-flex"></span>
 </div>
+<noscript class="noscript">
+    <div class="alert alert-danger position-fixed top-50 start-50 translate-middle text-center" id="no-js-warning" role="alert">
+        Je nám líto, ale pro správné fungování stránky musíte aktivovat <a href="https://www.enable-javascript.com/cz/">JavaScript</a>.
+    </div>
+</noscript>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
