@@ -1,17 +1,19 @@
-let image = jQuery('.parallax-bg');
-let content = jQuery('.parallax-fg');
-
-let cookie = jQuery('.cookielaw-bottom');
-let wrapper = jQuery('.parallax-wrapper')[0];
-
 function update_cookie_pos() {
-    const scrollHeight = wrapper.scrollTop;
-    const pageHeight = wrapper.scrollHeight;
-    const winHeight = window.innerHeight;
-    cookie.css('bottom', pageHeight - scrollHeight - winHeight);
+    let cookie = jQuery('.cookielaw-bottom');
+    let wrapper = jQuery('.parallax-wrapper')[0];
+
+    if (cookie[0]) {
+        const scrollHeight = wrapper.scrollTop;
+        const pageHeight = wrapper.scrollHeight;
+        const winHeight = window.innerHeight;
+        cookie.css('bottom', pageHeight - scrollHeight - winHeight);
+    }
 }
 
 function update_parallax() {
+    let image = jQuery('.parallax-bg');
+    let content = jQuery('.parallax-fg');
+
     const imgDisplay = image.css('display');
     image.css('display', 'block');
     const imgHeight = image[0].clientHeight;
@@ -32,9 +34,13 @@ function update_parallax() {
         });
         content.css('background', 'none');
     }
+    update_cookie_pos();
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    let content = jQuery('.parallax-fg');
+    let wrapper = jQuery('.parallax-wrapper')[0];
+    
     if (jQuery('#dw__login').length) {
         jQuery('input[namejQuery="u"]').attr("placeholder", "Uživatelské jméno");
         jQuery('input[namejQuery="p"]').attr("placeholder", "Heslo");
@@ -45,13 +51,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         resize_observer.observe(content[0]);
     }
     window.addEventListener('resize', update_parallax);
-    if (cookie[0] != null) {
-        update_cookie_pos();
-        wrapper.addEventListener('scroll', update_cookie_pos);
-    }
-
+    wrapper.addEventListener('scroll', update_cookie_pos);
+    update_cookie_pos();
     jQuery('.loader-wrapper').fadeOut();
 });
+
 (function (i, s, o, g, r, a, m) {
     i["GoogleAnalyticsObject"] = r;
     i[r] = i[r] || function () {
