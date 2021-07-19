@@ -85,7 +85,9 @@ class tpl_functions {
 
             $item_data = explode('|', $link);
             // Convert dw syntax to html link
-            $item_data[0] = wl(ltrim($item_data[0]));
+            if (page_exists($item_data[0])) {
+                $item_data[0] = wl(ltrim($item_data[0]));
+            }
             // If it's a 1st level link, store it in new array
             if ($indent <= $min_indent) {
                 $i++;
