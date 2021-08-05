@@ -60,7 +60,7 @@ class tpl_functions {
     static function drawNavUserItems() {
         $html = "<ul class='navbar-nav ms-auto'>";
         $html .= "<li class='nav-item dropdown'>";
-        $html .= "<span class='nav-link dropdown-toggle' role='button' data-bs-toggle='dropdown'><i class='fa fa-cogs'></i>&nbsp;Nástroje</span>";
+        $html .= "<span class='nav-link py-1 dropdown-toggle' role='button' data-bs-toggle='dropdown'><i class='fa fa-cogs'></i>&nbsp;Nástroje</span>";
         $items = (new PageMenu())->getItems();
         $items = array_merge($items, (new UserMenu())->getItems());
         $html .= self::getNavAdminHTML($items);
@@ -98,7 +98,7 @@ class tpl_functions {
         return $data;
     }
 
-    private static function getNavLinkHTML(array $data, string $classes = 'nav-link', bool $dropdown = false) {
+    private static function getNavLinkHTML(array $data, string $classes = 'nav-link py-1', bool $dropdown = false) {
         $html = "";
         if ($dropdown) {
             $html .= "<a class='{$classes}' href='{$data[0]}' role='button' data-bs-toggle='dropdown'>";
@@ -115,7 +115,7 @@ class tpl_functions {
     private static function getNavDropdownHTML(array $data) {
         $html = "<li class='nav-item dropdown'>";
         // Render the first item
-        $html .= self::getNavLinkHTML($data[0], 'nav-link dropdown-toggle', true);
+        $html .= self::getNavLinkHTML($data[0], 'nav-link dropdown-toggle py-1', true);
         $html .= "<ul class='dropdown-menu'>";
         // Render the rest in dropdown
         for ($i = 1; $i < count($data); $i++) {
