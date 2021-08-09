@@ -41,6 +41,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let content = jQuery('.parallax-fg');
     let wrapper = jQuery('.parallax-wrapper')[0];
     
+    // Add corrected page title
+    try {
+        let titlePrefix = document.title.split("• ")[1];
+        document.title = document.querySelector("h1").textContent + ` • ${titlePrefix}`;
+    } finally {}
+
     if (jQuery('#dw__login').length) {
         jQuery('input[namejQuery="u"]').attr("placeholder", "Uživatelské jméno");
         jQuery('input[namejQuery="p"]').attr("placeholder", "Heslo");
