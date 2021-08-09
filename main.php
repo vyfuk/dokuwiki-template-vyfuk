@@ -141,6 +141,7 @@ require_once(dirname(__FILE__) . '/tpl_functions.php');
         </footer>
     </div>
 </div>
+    <?php tpl_functions::draw_dev_warning(); ?>
 <div class="loader-wrapper">
     <span class="loader d-flex"></span>
 </div>

@@ -15,7 +15,7 @@ use dokuwiki\Menu\SiteMenu;
 use dokuwiki\Menu\UserMenu;
 
 class tpl_functions {
-    static function getPageTitle(string $ID) {
+    static function getPageTitle(string $ID): string {
         if ($ID == "start"){
             return "Tady je Výfučí!";
         } elseif (!page_exists($ID)) {
@@ -27,11 +27,11 @@ class tpl_functions {
         return $prefix . self::getPageTitleSuffix();
     }
 
-    static function getPageTitleSuffix() {
+    static function getPageTitleSuffix(): string {
         return " • Výfuk";
     }
 
-    static function draw_content(string $path) {
+    static function draw_content(string $path): void {
         if (page_exists($path)) {
             tpl_include_page($path);
         } else {
@@ -39,7 +39,11 @@ class tpl_functions {
         }
     }
 
-    static function drawNavItems(string $path, string $classes = '') {
+    static function draw_dev_warning(): void {
+        echo "<div class='alert alert-warning position-fixed bottom-0 end-0 m-3'>Upozornění: Toto je testovací verze webu!</div>";
+    }
+
+    static function drawNavItems(string $path, string $classes = ''): void {
         $path = wikiFN($path);
         if (file_exists($path)) {
             $items = self::parseMenuFile($path);
@@ -60,7 +64,7 @@ class tpl_functions {
         }
     }
 
-    static function drawNavUserItems() {
+    static function drawNavUserItems(): void {
         // Define the menu items
         // Null symbolizes the dropdown divider
         $items = (new SiteMenu())->getItems();
@@ -79,7 +83,7 @@ class tpl_functions {
         echo $html;
     }
 
-    private static function parseMenuFile(string $path) {
+    private static function parseMenuFile(string $path): array {
         $items = explode("\n", file_get_contents($path));
         $i = -1;
         $min_indent = -1; // This stores the first-level indent
@@ -108,7 +112,7 @@ class tpl_functions {
         return $data;
     }
 
-    private static function getNavLinkHTML(array $data, string $classes = 'nav-link py-1', bool $dropdown = false) {
+    private static function getNavLinkHTML(array $data, string $classes = 'nav-link py-1', bool $dropdown = false): string {
         $html = "";
         if ($dropdown) {
             $html .= "<a class='{$classes}' href='{$data[0]}' role='button' data-bs-toggle='dropdown'>";
@@ -122,7 +126,7 @@ class tpl_functions {
         return $html;
     }
 
-    private static function getNavDropdownHTML(array $data) {
+    private static function getNavDropdownHTML(array $data): string {
         $html = "<li class='nav-item dropdown'>";
         // Render the first item
         $html .= self::getNavLinkHTML($data[0], 'nav-link dropdown-toggle py-1', true);
@@ -136,7 +140,7 @@ class tpl_functions {
         return $html;
     }
 
-    private static function getNavAdminHTML(array $data) {
+    private static function getNavAdminHTML(array $data): string {
         global $INFO;
 
         // Blacklist of item types we don't want in the menu (cuz nobody uses them)
