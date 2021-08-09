@@ -44,7 +44,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Add corrected page title
     try {
         let titlePrefix = document.title.split("• ")[1];
-        document.title = document.querySelector("h1").textContent + ` • ${titlePrefix}`;
+        if (titlePrefix) {
+            document.title = document.querySelector("h1").textContent + ` • ${titlePrefix}`;
+        }
     } catch {}
 
     if (jQuery('#dw__login').length) {
