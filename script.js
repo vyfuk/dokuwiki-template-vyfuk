@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     try {
         let titlePrefix = document.title.split("• ")[1];
         document.title = document.querySelector("h1").textContent + ` • ${titlePrefix}`;
-    } finally {}
+    } catch {}
 
     if (jQuery('#dw__login').length) {
         jQuery('input[namejQuery="u"]').attr("placeholder", "Uživatelské jméno");
