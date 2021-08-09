@@ -50,6 +50,11 @@
     &:active {
         background-color: __background___alt;
     }
+
+    svg {
+        height: 1rem;
+        width: auto;
+    }
 }
 
 .ico {

@@ -10,22 +10,25 @@
 
 namespace vyfukTemplate;
 
-use Doku_Handler;
-use Doku_Parser;
 use dokuwiki\Menu\PageMenu;
+use dokuwiki\Menu\SiteMenu;
 use dokuwiki\Menu\UserMenu;
-use dokuwiki\Parsing\Parser;
 
 class tpl_functions {
     static function getPageTitle(string $ID) {
-        if ($ID == "start")
+        if ($ID == "start"){
             return "Tady je Výfučí!";
-        elseif (!page_exists($ID))
+        } elseif (!page_exists($ID)) {
             $prefix = "Stránka nenalezena";
-        else
+        } else {
             $prefix = p_get_metadata($ID, 'title');
+        }
 
-        return $prefix . ' • Výfuk';
+        return $prefix . self::getPageTitleSuffix();
+    }
+
+    static function getPageTitleSuffix() {
+        return " • Výfuk";
     }
 
     static function draw_content(string $path) {
@@ -58,11 +61,18 @@ class tpl_functions {
     }
 
     static function drawNavUserItems() {
+        // Define the menu items
+        // Null symbolizes the dropdown divider
+        $items = (new SiteMenu())->getItems();
+        $items[] = null;
+        $items = array_merge($items, (new PageMenu())->getItems());
+        $items[] = null;
+        $items = array_merge($items, (new UserMenu())->getItems());
+
+        // Render the html
         $html = "<ul class='navbar-nav ms-auto'>";
         $html .= "<li class='nav-item dropdown'>";
         $html .= "<span class='nav-link py-1 dropdown-toggle' role='button' data-bs-toggle='dropdown'><i class='fa fa-cogs'></i>&nbsp;Nástroje</span>";
-        $items = (new PageMenu())->getItems();
-        $items = array_merge($items, (new UserMenu())->getItems());
         $html .= self::getNavAdminHTML($items);
         $html .= "</li>";
         $html .= "</ul>";
@@ -119,7 +129,7 @@ class tpl_functions {
         $html .= "<ul class='dropdown-menu'>";
         // Render the rest in dropdown
         for ($i = 1; $i < count($data); $i++) {
-            $html .= self::getNavLinkHTML($data[$i], 'dropdown-item');
+            $html .= self::getNavLinkHTML($data[$i], 'dropdown-item d-flex align-items-center');
         }
         $html .= "</ul>";
         $html .= "</li>";
@@ -128,14 +138,25 @@ class tpl_functions {
 
     private static function getNavAdminHTML(array $data) {
         global $INFO;
-        $html = "<ul class='dropdown-menu'>";
+
+        // Blacklist of item types we don't want in the menu (cuz nobody uses them)
+        $blacklist = ["recent", "menubutton", "backlink", "top"];
+
+        //HTML definition
+        $html = "<ul class='dropdown-menu dropdown-menu-end end-0'>";
         $html .= "<span class='dropdown-header text-center w-100'><i class='fa fa-user'></i>&nbsp;{$INFO['userinfo']['name']}</span>";
         foreach ($data as $item) {
-            $item_data = [
-                $item->getLink(),
-                inlineSVG($item->getSvg()) . '&nbsp;' . $item->getLabel()
-            ];
-            $html .= self::getNavLinkHTML($item_data, 'dropdown-item');
+            if (is_null($item)) {// Handle divider rendering
+                $html .= "<div class='dropdown-divider'></div>";
+            } else if (in_array($item->getType(), $blacklist)) { // Handle blacklisted items
+                continue;
+            } else {
+                $item_data = [
+                    $item->getLink(),
+                    inlineSVG($item->getSvg()) . '&nbsp;' . $item->getLabel()
+                ];
+                $html .= self::getNavLinkHTML($item_data, 'dropdown-item d-flex align-items-center');
+            }
         }
         $html .= "</ul>";
         return $html;
