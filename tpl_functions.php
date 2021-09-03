@@ -112,7 +112,7 @@ class tpl_functions {
         return $data;
     }
 
-    private static function getNavLinkHTML(array $data, string $classes = 'nav-link py-1', bool $dropdown = false): string {
+    private static function getNavLinkHTML(array $data, string $classes = 'nav-link py-2', bool $dropdown = false): string {
         $html = "";
         if ($dropdown) {
             $html .= "<a class='{$classes}' href='{$data[0]}' role='button' data-bs-toggle='dropdown'>";
@@ -129,7 +129,7 @@ class tpl_functions {
     private static function getNavDropdownHTML(array $data): string {
         $html = "<li class='nav-item dropdown'>";
         // Render the first item
-        $html .= self::getNavLinkHTML($data[0], 'nav-link dropdown-toggle py-1', true);
+        $html .= self::getNavLinkHTML($data[0], 'nav-link dropdown-toggle py-2', true);
         $html .= "<ul class='dropdown-menu'>";
         // Render the rest in dropdown
         for ($i = 1; $i < count($data); $i++) {
