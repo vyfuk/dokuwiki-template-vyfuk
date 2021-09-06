@@ -40,7 +40,9 @@ class tpl_functions {
     }
 
     static function draw_dev_warning(): void {
-        echo "<div class='alert alert-warning position-fixed bottom-0 end-0 m-3'>Upozornění: Toto je testovací verze webu!</div>";
+        if (tpl_getConf('display_dev_warning')) {
+            echo "<div class='alert alert-warning position-fixed bottom-0 end-0 m-3'>Upozornění: Toto je testovací verze webu!</div>";
+        }
     }
 
     static function drawNavItems(string $path, string $classes = ''): void {
