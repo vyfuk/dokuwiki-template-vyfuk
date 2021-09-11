@@ -77,7 +77,7 @@ img {
     }
 }
 
-table th, table td {
+table:not(.border-0) th, table:not(.border-0) td {
     border: 1px solid __orange__ !important;
     padding: .5rem .25rem;
 }
