@@ -128,12 +128,12 @@ require_once(dirname(__FILE__) . '/tpl_functions.php');
                             <?php include("icons/vyfuk-dc.svg"); ?>
                         </a>
                     </div>
-                    <div class="d-flex align-items-center justify-content-around py-2 order-lg-3">
-                        <a href="https://www.msmt.cz/">
-                            <img height="90" src="/lib/tpl/vyfuk/images/logo-msmt.png" alt="MŠMT ČR">
+                    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-around py-2 order-lg-3">
+                        <a class="col" href="https://www.msmt.cz/">
+                            <img width="180" src="/lib/tpl/vyfuk/images/logo-msmt.png" alt="MŠMT ČR">
                         </a>
-                        <span class="align-self-end">Realizace projektu byla podpořena Ministerstvem školství, mládeže a tělovýchovy.</span>
-                        <a href="https://www.mff.cuni.cz/">
+                        <span class="col align-self-end my-3 my-lg-0">Realizace projektu byla podpořena Ministerstvem školství, mládeže a tělovýchovy.</span>
+                        <a class="col" href="https://www.mff.cuni.cz/">
                             <img height="60" src="/lib/tpl/vyfuk/images/logo-mff.png" alt="MFF UK">
                         </a>
                     </div>
