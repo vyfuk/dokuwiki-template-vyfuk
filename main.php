@@ -28,6 +28,15 @@ require_once(dirname(__FILE__) . '/tpl_functions.php');
     tpl_metaheaders();
     ?>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-01JRNGD4G0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-01JRNGD4G0');
+</script>
 
 <body data-act="<?php echo $ACT; ?>" data-namespace="<?php echo getNS($ID); ?>" data-page_id="<?php echo $ID; ?>">
     <div class="parallax-wrapper">
